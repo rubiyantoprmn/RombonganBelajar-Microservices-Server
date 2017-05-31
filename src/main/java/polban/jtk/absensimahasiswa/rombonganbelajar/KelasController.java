@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class KelasController {
 	protected Logger logger = Logger.getLogger(KelasController.class.getName());
 	
-	@Autowired
+	@Autowired    
 	KelasRepository repository;
 	
 	
