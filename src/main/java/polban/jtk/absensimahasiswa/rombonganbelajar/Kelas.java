@@ -5,7 +5,13 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+
 
 @Entity
 @Table(name= "kelas")
@@ -20,6 +26,10 @@ private static final long serialVersionUID = 1L;
 	@Column(name = "tingkat_kelas")
 	private int tingkat_kelas;
 	
+	@JoinColumn(name = "kode_program_studi", referencedColumnName = "kode_program_studi", nullable = false)
+	@ManyToOne(optional = false)
+	@NotFound(action = NotFoundAction.IGNORE)
+	private ProgramStudi kode_program_studi;
 	
 	protected Kelas()
 	{
@@ -52,10 +62,21 @@ private static final long serialVersionUID = 1L;
 		return this.tingkat_kelas;
 	}
 	
+	
+	public void setKodeProgramStudi(ProgramStudi kode_program_studi)
+	{
+		this.kode_program_studi = kode_program_studi;
+	}
+	
+	public ProgramStudi getKodeProgramStudi()
+	{
+		return this.kode_program_studi;
+	}
+	
 	@Override
 	public String toString()
 	{
-		return nama_kelas + "\t" + tingkat_kelas;
+		return nama_kelas + "\t" + tingkat_kelas  + "\t" + kode_program_studi ;
 	}
 
 }
