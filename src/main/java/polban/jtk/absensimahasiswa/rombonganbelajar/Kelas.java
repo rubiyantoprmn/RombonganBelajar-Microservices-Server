@@ -20,6 +20,7 @@ private static final long serialVersionUID = 1L;
 	@Column(name = "tingkat_kelas")
 	private int tingkat_kelas;
 	
+	
 	protected Kelas()
 	{
 		
