@@ -31,15 +31,23 @@ private static final long serialVersionUID = 1L;
 	@NotFound(action = NotFoundAction.IGNORE)
 	private ProgramStudi kode_program_studi;
 	
+	
+	@JoinColumn(name = "kode_semester", referencedColumnName = "kode_semester", nullable = false)
+	@ManyToOne(optional = false)
+	@NotFound(action = NotFoundAction.IGNORE)
+	private Semester kode_semester;
+	
 	protected Kelas()
 	{
 		
 	}
 	
-	public Kelas(char id_kelas, int tingkat_mahasiswa)
+	public Kelas(char id_kelas, int tingkat_mahasiswa, ProgramStudi kode_program_studi, Semester kode_semester)
 	{
 		this.nama_kelas = id_kelas;
 		this.tingkat_kelas = tingkat_mahasiswa;
+		this.kode_program_studi = kode_program_studi;
+		this.kode_semester = kode_semester;
 	}
 	
 	public void setNamaKelas(char id_kelas)
@@ -73,10 +81,21 @@ private static final long serialVersionUID = 1L;
 		return this.kode_program_studi;
 	}
 	
+	
+	public void setKodeSemester(Semester kode_semester)
+	{
+		this.kode_semester = kode_semester;
+	}
+	
+	public Semester getKodeSemester()
+	{
+		return this.kode_semester;
+	}
+	
 	@Override
 	public String toString()
 	{
-		return nama_kelas + "\t" + tingkat_kelas  + "\t" + kode_program_studi ;
+		return nama_kelas + "\t" + tingkat_kelas  + "\t" + kode_program_studi + "\t" + kode_semester ;
 	}
 
 }
