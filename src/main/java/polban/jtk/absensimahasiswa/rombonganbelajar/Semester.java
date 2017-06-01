@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name= "semester")
 public class Semester implements Serializable {
@@ -34,9 +36,11 @@ private static final long serialVersionUID = 1L;
 	
 	
 	@Column(name = "tanggal_awal_semester")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date tanggal_awal_semester;
 	
 	@Column(name = "tanggal_akhir_semester")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date tanggal_akhir_semester;
 	
 	protected Semester(){
