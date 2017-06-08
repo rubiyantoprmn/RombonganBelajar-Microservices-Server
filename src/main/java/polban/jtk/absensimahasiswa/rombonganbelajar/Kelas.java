@@ -20,6 +20,9 @@ public class Kelas implements Serializable{
 private static final long serialVersionUID = 1L;
 	
 	@Id	
+	@Column(name= "id_kelas")
+	private int id_kelas;
+	
 	@Column(name= "nama_kelas")
 	private char nama_kelas;
 	
@@ -42,20 +45,30 @@ private static final long serialVersionUID = 1L;
 		
 	}
 	
-	public Kelas(char id_kelas, int tingkat_mahasiswa, ProgramStudi kode_program_studi, Semester kode_semester)
+	public Kelas(int id_kelas,char nama_kelas, int tingkat_mahasiswa, ProgramStudi kode_program_studi, Semester kode_semester)
 	{
-		this.nama_kelas = id_kelas;
+		this.id_kelas = id_kelas;
+		this.nama_kelas = nama_kelas;
 		this.tingkat_kelas = tingkat_mahasiswa;
 		this.kode_program_studi = kode_program_studi;
 		this.kode_semester = kode_semester;
 	}
 	
-	public void setNamaKelas(char id_kelas)
+	public void setNamaKelas(char nama_kelas)
 	{
-		this.nama_kelas = id_kelas;
+		this.nama_kelas = nama_kelas;
 	}
 	
-	public int getNamaKelas()
+	public void setIdKelas(int id_kelas)
+	{
+		this.id_kelas = id_kelas;
+	}
+	public int getIdKelas()
+	{
+		return this.id_kelas;
+	}
+	
+	public char getNamaKelas()
 	{
 		return this.nama_kelas;
 	}
@@ -95,7 +108,7 @@ private static final long serialVersionUID = 1L;
 	@Override
 	public String toString()
 	{
-		return nama_kelas + "\t" + tingkat_kelas  + "\t" + kode_program_studi + "\t" + kode_semester ;
+		return id_kelas + "\t" + nama_kelas + "\t" + tingkat_kelas  + "\t" + kode_program_studi + "\t" + kode_semester ;
 	}
 
 }
