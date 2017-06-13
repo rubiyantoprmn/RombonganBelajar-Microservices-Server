@@ -21,7 +21,7 @@ public class MahasiswaController {
 	
 	private static SessionFactory sessionFactory;
 	private static RestTemplate restTemplate;
-	
+	//lalalalal
 	@Autowired    
 	MahasiswaRepository repository;
 	

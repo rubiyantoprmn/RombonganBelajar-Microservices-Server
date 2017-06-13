@@ -21,7 +21,7 @@ public class Mahasiswa implements Serializable {
 	@Id	
 	@Column(name= "nim")
 	private String nim;
-	
+	//lalalala
 	
 	@JoinColumn(name = "id_kelas", referencedColumnName = "id_kelas", nullable = false)
 	@ManyToOne(optional = false)
